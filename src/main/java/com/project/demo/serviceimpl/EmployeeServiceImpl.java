@@ -1,7 +1,9 @@
 package com.project.demo.serviceimpl;
 
+import com.project.demo.exception.EmployeeNotFoundException;
 import com.project.demo.entity.Employee;
 import com.project.demo.service.EmployeeService;
+
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -33,8 +35,8 @@ public class EmployeeServiceImpl implements EmployeeService {
                 return e;
             }
         }
+		throw new EmployeeNotFoundException("Employee with ID " + id + " not found.");
 
-        return null;
     }
 
     @Override
@@ -49,6 +51,6 @@ public class EmployeeServiceImpl implements EmployeeService {
             }
         }
 
-        return null;
+		throw new EmployeeNotFoundException("Employee with ID " + id + " not found.");
     }
 }
